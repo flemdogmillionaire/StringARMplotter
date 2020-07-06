@@ -376,9 +376,7 @@ void readIR(bool BTEnable) {
 			break;
 		case 8: buttonCode = CODE_RESUME;
 			break;
-		default:
-
-
+		default: fail = true;
 		}
 		switch (buttonCode) {
 			//#ifndef NO_REMOTE      
@@ -456,7 +454,6 @@ void readIR(bool BTEnable) {
 			}
 			else {
 				if (steering > 49) {
-					
 					manualLeft = 1;
 					manualRight = -(throttle + steering - 98) / (throttle - steering);
 				}
@@ -467,6 +464,7 @@ void readIR(bool BTEnable) {
 			}
 
 		}
+		else fail = true;
 	}
 	else fail = true;
 
