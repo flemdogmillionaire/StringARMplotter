@@ -36,7 +36,7 @@ bool stopPressed = false;
 int program = 0; //0 is start program, responding to IR 
 double fsdist;
 //manual control
-int manualLeft = 0, manualRight = 0;
+float manualLeft = 0, manualRight = 0;
 float printSize = 1.0;
 bool continousManualDrive = false;
 
@@ -118,9 +118,6 @@ void loop()
 	
 	if (program == 0) {
 		readIR(true);
-		float left = (manualLeft / spoolCirc) * 360.0;
-		float right = (manualRight / spoolCirc) * 360.0;
-
 		if (manualLeft != 0 || manualRight != 0) {
 			currentLeftSteps += manualLeft * stepsPerMM;
 			currentRightSteps += manualRight * stepsPerMM;
