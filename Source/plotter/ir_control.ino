@@ -25,7 +25,7 @@ ArduinoBlue phone(Serial1);
 
 #define DISP_INCHES 23.22
 
-#define DEADZONE 25
+#define DEADZONE 10
 
 
 
@@ -232,8 +232,7 @@ void setupIR()
 
 }
 
-void readIR(bool BTEnable)
-{
+void readIR(bool BTEnable) {
 	float lDist;
 	bool fail = false;
 	if (BTEnable) {
@@ -247,7 +246,7 @@ void readIR(bool BTEnable)
 		p.y = map(p.y, 0, 320, 320, 0);
 		//p.x = 240 - p.x;
 		//p.y = 320 - p.y;
-		
+
 		//Serial.print(p.x);
 		//Serial.println(p.y);
 
@@ -379,38 +378,7 @@ void readIR(bool BTEnable)
 			break;
 		default:
 
-			if (throttle > 49 + DEADZONE) {
-				if (steering > 49 + DEADZONE) {
-					manualRight = -1;
-				}
-				else if (steering < 49 - DEADZONE) {
-					manualLeft = -1;
-				}
-				else {
-					manualRight = manualLeft = -1;
-				}
-			}
-			else if (throttle < 49 - DEADZONE) {
-				if (steering > 49 + DEADZONE) {
-					manualLeft = 1;
-				}
-				else if (steering < 49 - DEADZONE) {
-					manualRight = 1;
-				}
-				else {
-					manualRight = manualLeft = 1;
-				}
-			}
-			else {
-				if (steering > 49 + DEADZONE) {
-					manualLeft = 1;
-					manualRight = -1;
-				}
-				else if (steering < 49 - DEADZONE) {
-					manualRight = 1;
-					manualLeft = -1;
-				}
-			}
+
 		}
 		switch (buttonCode) {
 			//#ifndef NO_REMOTE      
@@ -474,6 +442,32 @@ void readIR(bool BTEnable)
 			//#endif //NO_REMOTE         
 		}
 	}
+	else if (throttle != 49 || steering != 49) { // no buttons pressed on touch or BT, check BT joystick
+		if ((throttle > 49 + DEADZONE || throttle < 49 - DEADZONE) || (steering > 49 + DEADZONE || steering < 49 - DEADZONE)) {
+			if (throttle > 49) {
+				if (steering > 49) {
+					manualRight = -1;
+					manualLeft = -(throttle - steering) / (throttle + steering - 98);
+				}
+				else {
+					manualLeft = -1;
+					manualRight = -(throttle + steering - 98) / (throttle - steering);
+				}
+			}
+			else {
+				if (steering > 49) {
+					
+					manualLeft = 1;
+					manualRight = -(throttle + steering - 98) / (throttle - steering);
+				}
+				else {
+					manualRight = 1;
+					manualLeft = -(throttle - steering) / (throttle + steering - 98);
+				}
+			}
+
+		}
+	}
 	else fail = true;
 
 
@@ -494,21 +488,21 @@ void readIR(bool BTEnable)
 
 
 
-       
- 
-    if(fail) {
+
+
+	if (fail) {
 		if (stopPressed) {
-			
+
 		}
-      // SER_PRINT("???: ");
-    }
-	
-    //else {
-    //   makePenNoise(1);
-    //}
-    //SER_PRINTLN2(results.value, HEX);      
-    
-    //irrecv.resume(); // Receive the next value
-   
+		// SER_PRINT("???: ");
+	}
+
+	//else {
+	//   makePenNoise(1);
+	//}
+	//SER_PRINTLN2(results.value, HEX);      
+
+	//irrecv.resume(); // Receive the next value
+
 }
 
