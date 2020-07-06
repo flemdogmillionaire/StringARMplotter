@@ -377,38 +377,39 @@ void readIR(bool BTEnable)
 			break;
 		case 8: buttonCode = CODE_RESUME;
 			break;
-		default: fail = true;
-		}
-		if (throttle > 49 + DEADZONE) {
-			if (steering > 49 + DEADZONE) {
-				manualRight = -1;
+		default:
+
+			if (throttle > 49 + DEADZONE) {
+				if (steering > 49 + DEADZONE) {
+					manualRight = -1;
+				}
+				else if (steering < 49 - DEADZONE) {
+					manualLeft = -1;
+				}
+				else {
+					manualRight = manualLeft = -1;
+				}
 			}
-			else if (steering < 49 - DEADZONE) {
-				manualLeft = -1;
+			else if (throttle < 49 - DEADZONE) {
+				if (steering > 49 + DEADZONE) {
+					manualLeft = 1;
+				}
+				else if (steering < 49 - DEADZONE) {
+					manualRight = 1;
+				}
+				else {
+					manualRight = manualLeft = 1;
+				}
 			}
 			else {
-				manualRight = manualLeft = -1;
-			}
-		}
-		else if (throttle < 49 - DEADZONE) {
-			if (steering > 49 + DEADZONE) {
-				manualLeft = 1;
-			}
-			else if (steering < 49 - DEADZONE) {
-				manualRight = 1;
-			}
-			else {
-				manualRight = manualLeft = 1;
-			}
-		}
-		else {
-			if (steering > 49 + DEADZONE) {
-				manualLeft = 1;
-				manualRight = -1;
-			}
-			else if (steering < 49 - DEADZONE) {
-				manualRight = 1;
-				manualLeft = -1;
+				if (steering > 49 + DEADZONE) {
+					manualLeft = 1;
+					manualRight = -1;
+				}
+				else if (steering < 49 - DEADZONE) {
+					manualRight = 1;
+					manualLeft = -1;
+				}
 			}
 		}
 		switch (buttonCode) {
