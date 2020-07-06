@@ -25,7 +25,7 @@ ArduinoBlue phone(Serial1);
 
 #define DISP_INCHES 23.22
 
-
+#define DEADZONE 25
 
 
 
@@ -375,7 +375,41 @@ void readIR(bool BTEnable)
 			break;
 		case 7: buttonCode = CODE_RIGHT_CALIBRATION;
 			break;
+		case 8: buttonCode = CODE_RESUME;
+			break;
 		default: fail = true;
+		}
+		if (throttle > 49 + DEADZONE) {
+			if (steering > 49 + DEADZONE) {
+				manualRight = -1;
+			}
+			else if (steering < 49 - DEADZONE) {
+				manualLeft = -1;
+			}
+			else {
+				manualRight = manualLeft = -1;
+			}
+		}
+		else if (throttle < 49 - DEADZONE) {
+			if (steering > 49 + DEADZONE) {
+				manualLeft = 1;
+			}
+			else if (steering < 49 - DEADZONE) {
+				manualRight = 1;
+			}
+			else {
+				manualRight = manualLeft = 1;
+			}
+		}
+		else {
+			if (steering > 49 + DEADZONE) {
+				manualLeft = 1;
+				manualRight = -1;
+			}
+			else if (steering < 49 - DEADZONE) {
+				manualRight = 1;
+				manualLeft = -1;
+			}
 		}
 		switch (buttonCode) {
 			//#ifndef NO_REMOTE      
@@ -421,11 +455,20 @@ void readIR(bool BTEnable)
 			break;
 		case CODE_STOP:
 			stopPressed = true;
+			SER_PRINTLN("stopbutton");
 #if  CODE_DISABLE_CONT_DRIVE == 0xBADC0DE
 			//just disable continous drive when pressing stop. Re-enable with CODE_ENABLE_CONT_DRIVE again
 			continousManualDrive = false;
 #endif
 			break;
+		case CODE_RESUME:
+			SER_PRINTLN("startbutton");
+			//resume print, or start new
+			program = 1; //start print
+			currentPlot = 1;
+			resumePlot = true;
+			break;
+
 		default: fail = true;
 			//#endif //NO_REMOTE         
 		}
