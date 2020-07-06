@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C5F80730-F44F-4478-BDAE-6634EFC2CA88}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectName>plotter</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\plotter;$(ProjectDir)..\..\..\..\Arduino\libraries\ArduinoBlue\src;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\libraries\SD\src;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\libraries\SD\src\utility;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\libraries\SPI;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\libraries\Servo\src;$(ProjectDir)..\..\..\..\Arduino\libraries\Libraries_CTP-SD-Hardware-SPI_ER-TFTM032-3;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\cores\arduino;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\cores\arduino\avr;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\cores\arduino\TinyUSB;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\cores\arduino\USB;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\variants\grand_central_m4;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\cores\arduino\TinyUSB\Adafruit_TinyUSB_ArduinoCore;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\cores\arduino\TinyUSB\Adafruit_TinyUSB_ArduinoCore\tinyusb\src;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\CMSIS\Include\;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0\CMSIS\Device\ATMEL\;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\4.8.3;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\4.8.3\arm-none-eabi;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\4.8.3\bits;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\sys;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.5.14\system;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\avr;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\adafruit\hardware\samd\usb;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\4.8.3\include;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\Device\ATMEL\samd21\include\component;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.2.0\CMSIS\Device\ATMEL\samd21\include\component;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.2.0\CMSIS\Device\ATMEL\samd21\include\instance;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.1.0\CMSIS\Device\ATMEL\samd21\include\pio;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.2.0\CMSIS\Device\ATMEL\samd21\include\component;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\Device\ATMEL\samd21\include;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\CMSIS\include;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\Device\ATMEL\samd21\include\component;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\Device\ATMEL\samd21\include\instance;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\Device\ATMEL\samd21\include\pio;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\4.5.0\Device\ATMEL\samd21\include\component;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.1.0\CMSIS\Device\ATMEL\samd21\include\component;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.1.0\CMSIS\Device\ATMEL\samd21\include\instance;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.1.0\CMSIS\Device\ATMEL\samd21\include\pio;$(ProjectDir)..\..\..\..\..\AppData\Local\arduino15\packages\arduino\tools\CMSIS\CMSIS-Atmel\1.1.0\CMSIS\Device\ATMEL\samd21\include\component;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.plotter.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>F_CPU=180000000L;ARDUINO=108013;ARDUINO_GRAND_CENTRAL_M4;ARDUINO_ARCH_SAMD;__SAMD51P20A__;ADAFRUIT_GRAND_CENTRAL_M4;__SAMD51__;USB_VID=0x239A;USB_PID=0x8031;USBCON;USB_CONFIG_POWER=100;__FPU_PRESENT;ARM_MATH_CM4;ENABLE_CACHE;VARIANT_QSPI_BAUD_DEFAULT=50000000;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="VisualMicro" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="ir_control.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="plotter.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="servo_control.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="step_control.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MachineDefs.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="servo_control.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="step_control.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="__vm\.plotter.vsarduino.h" />
+  </ItemGroup>
+  <PropertyGroup>
+    <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
