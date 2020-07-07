@@ -440,12 +440,20 @@ void readIR(bool BTEnable) {
 			//#endif //NO_REMOTE         
 		}
 	}
-	else if (throttle != 49 || steering != 49) { // no buttons pressed on touch or BT, check BT joystick
+	else if ((throttle != 49 || steering != 49) && BTEnable) { // no buttons pressed on touch or BT, check BT joystick
 		if ((throttle > 49 + DEADZONE || throttle < 49 - DEADZONE) || (steering > 49 + DEADZONE || steering < 49 - DEADZONE)) {
-			manualRight = float(-throttle) - float(steering);
-			manualLeft = float(-throttle) + float(steering);
-			manualRight = manualRight / max(abs(manualLeft), abs(manualRight));
-			manualLeft = manualLeft / max(abs(manualLeft), abs(manualRight));
+			if (throttle > 49) {
+				throttle = 49 + (sqrt(abs((throttle - 49)*(throttle - 49) - (steering - 49)*(steering - 49))));
+			}
+			else {
+				throttle = 49 - (sqrt(abs((throttle - 49)*(throttle - 49) - (steering - 49)*(steering - 49))));
+			}
+			//Serial.print(throttle); Serial.print(" , "); Serial.println(steering);
+			manualRight = float(-throttle) - float(steering) + 98;
+			manualLeft = float(steering - 49) - float(throttle - 49);
+			float highest = max(abs(manualLeft), abs(manualRight));
+			manualRight = manualRight / highest;
+			manualLeft = manualLeft / highest;
 
 		}
 		else fail = true;
