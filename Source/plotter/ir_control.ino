@@ -25,7 +25,7 @@ ArduinoBlue phone(Serial1);
 
 #define DISP_INCHES 23.22
 
-#define DEADZONE 10
+#define DEADZONE 20
 
 
 
@@ -445,21 +445,21 @@ void readIR(bool BTEnable) {
 			if (throttle > 49) {
 				if (steering > 49) {
 					manualRight = -1;
-					manualLeft = -(throttle - steering) / (throttle + steering - 98);
+					manualLeft = -1 * float(throttle - steering) / float(throttle + steering - 98);
 				}
 				else {
 					manualLeft = -1;
-					manualRight = -(throttle + steering - 98) / (throttle - steering);
+					manualRight = -1*float(throttle + steering - 98) / float(throttle - steering);
 				}
 			}
 			else {
 				if (steering > 49) {
 					manualLeft = 1;
-					manualRight = -(throttle + steering - 98) / (throttle - steering);
+					manualRight = -1 * float(throttle + steering - 98) / float(throttle - steering);
 				}
 				else {
 					manualRight = 1;
-					manualLeft = -(throttle - steering) / (throttle + steering - 98);
+					manualLeft = -1 * float(throttle - steering) / float(throttle + steering - 98);
 				}
 			}
 
