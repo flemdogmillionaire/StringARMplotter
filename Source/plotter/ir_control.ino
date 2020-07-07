@@ -442,26 +442,10 @@ void readIR(bool BTEnable) {
 	}
 	else if (throttle != 49 || steering != 49) { // no buttons pressed on touch or BT, check BT joystick
 		if ((throttle > 49 + DEADZONE || throttle < 49 - DEADZONE) || (steering > 49 + DEADZONE || steering < 49 - DEADZONE)) {
-			if (throttle > 49) {
-				if (steering > 49) {
-					manualRight = -1;
-					manualLeft = -1 * float(throttle - steering) / float(throttle + steering - 98);
-				}
-				else {
-					manualLeft = -1;
-					manualRight = -1*float(throttle + steering - 98) / float(throttle - steering);
-				}
-			}
-			else {
-				if (steering > 49) {
-					manualLeft = 1;
-					manualRight = -1 * float(throttle + steering - 98) / float(throttle - steering);
-				}
-				else {
-					manualRight = 1;
-					manualLeft = -1 * float(throttle - steering) / float(throttle + steering - 98);
-				}
-			}
+			manualRight = float(-throttle) - float(steering);
+			manualLeft = float(-throttle) + float(steering);
+			manualRight = manualRight / max(abs(manualLeft), abs(manualRight));
+			manualLeft = manualLeft / max(abs(manualLeft), abs(manualRight));
 
 		}
 		else fail = true;

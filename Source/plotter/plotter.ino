@@ -119,7 +119,7 @@ void loop()
 	if (program == 0) {
 		readIR(true);
 		if (manualLeft != 0 || manualRight != 0) {
-			Serial.print(manualLeft); Serial.print(" , "); Serial.println(manualRight);
+			//Serial.print(manualLeft); Serial.print(" , "); Serial.println(manualRight);
 			currentLeftSteps += manualLeft * stepsPerMM;
 			currentRightSteps += manualRight * stepsPerMM;
 			
