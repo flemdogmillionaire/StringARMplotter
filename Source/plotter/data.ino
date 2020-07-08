@@ -111,7 +111,7 @@ void setupData()
   pinMode(SD_CS, OUTPUT);
 
   // see if the card is present and can be initialized:
-  if (!SD.begin(SPI_QUARTER_SPEED, SD_CS)) {
+  if (!SD.begin(SPI_FULL_SPEED, SD_CS)) {
     SER_PRINTLN("SD fail");
     // don't do anything more:
     return;
