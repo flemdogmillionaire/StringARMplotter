@@ -223,7 +223,7 @@ void setupIR()
   //irrecv.enableIRIn(); // Start the receiver  
 	Serial1.begin(9600);
 	tft.begin();
-	ctp.begin(40);
+	ctp.begin(45);
 	tft.setRotation(3);
 	tft.fillScreen(ILI9341_BLACK);
 	bmpDraw("scr.bmp", 0, 0);
