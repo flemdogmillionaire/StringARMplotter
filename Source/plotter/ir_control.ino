@@ -1,20 +1,30 @@
 //#include <IRremote.h>
+
+#define ADAFRUIT_LIBS
+
 #include "MachineDefs.h"
-#include <GFX.h>    // Core graphics library
 #include <SPI.h>       // this is needed for display
+#ifndef ADAFRUIT_LIBS // comment this if usoing bootleg libs
+#include <GFX.h>    // Core graphics library
 #include <ILI9341.h>
 #include <FT6206.h>
+#else
+#include <Adafruit_GFX.h>    // Core graphics library
+#include <Adafruit_ILI9341.h>
+#include <Adafruit_FT6206.h>
 
+#endif
 
+//FT6206 ctp = FT6206();  //uncomment this if using bootleg libs
+Adafruit_FT6206 ctp = Adafruit_FT6206();
 
-
-FT6206 ctp = FT6206();
 
 
 
 #define TFT_CS 9
 #define TFT_DC 7
-ILI9341 tft = ILI9341(TFT_CS, TFT_DC);
+//ILI9341 tft = ILI9341(TFT_CS, TFT_DC); //uncomment this if using bootleg libs
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 int buttonCode;
 
 

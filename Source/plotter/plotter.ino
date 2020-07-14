@@ -1,3 +1,7 @@
+
+#include <Adafruit_FT6206.h>
+#include <Adafruit_ZeroDMA.h>
+#include <Wire.h>
 #include <ArduinoBlue.h>
 #include <SD.h>
 bool UniPen = false;
