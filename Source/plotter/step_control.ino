@@ -32,11 +32,11 @@ bool stepped = false;
 bool accStopped = false;
 bool accStopped2 = false;
 //shortest reliable delay seems to be around 600 (1220 used previously) also these are only for non-lib speeds
-#define MIN_DELAY 128
+#define MIN_DELAY 132
 #define MAN_DELAY 500 
 #define THR_DELAY 330
 // microstep threshold delay
-#define MAX_DELAY 1900
+#define MAX_DELAY 2048
 unsigned long periodicPrintSpdCtr = 0;
 #define SPEED_PRINT_PERIOD 20000 //how many speed adjustments before speed is printed
 //Allowed speed in steps/us
@@ -51,9 +51,9 @@ float currentSpeed = MAN_SPEED;
 long numSteps3 = 0;
 
 // time (us) until full speed is reached
-#define FULL_SPEED_TIME 310000
+#define FULL_SPEED_TIME 330000
 //period (us) after which speed is adjusted
-#define SPADJ_PERIOD 75
+#define SPADJ_PERIOD 55
 //acceleration in steps/us/us.
 #define D_SPEED ((MAX_SPEED-MIN_SPEED)/(FULL_SPEED_TIME))\
 

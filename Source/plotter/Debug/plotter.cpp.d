@@ -144,7 +144,6 @@ C:\Users\fcoli\AppData\Local\Temp\VMBuilds\plotter\adafruit_adafruit_grandcentra
  C:\Users\fcoli\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.6.0\cores\arduino/Arduino.h \
  C:\Users\fcoli\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.6.0\cores\arduino/USB/USB_host.h \
  C:\Users\fcoli\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.6.0\cores\arduino/USB/samd21_host.h \
- f:\program\ files\ (x86)\microsoft\ visual\ studio\2019\community\common7\ide\extensions\iwtel3bg.scb\Micro\ Platforms\default\debuggers\VM_DBG/VM_DBG.h \
  C:\Users\fcoli\Documents\Arduino\libraries\Adafruit_FT6206_Library/Adafruit_FT6206.h \
  C:\Users\fcoli\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.6.0\libraries\Wire/Wire.h \
  C:\Users\fcoli\AppData\Local\arduino15\packages\adafruit\hardware\samd\1.6.0\libraries\Adafruit_ZeroDMA/Adafruit_ZeroDMA.h \

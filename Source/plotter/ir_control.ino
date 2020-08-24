@@ -1,10 +1,10 @@
 //#include <IRremote.h>
 
-#define ADAFRUIT_LIBS
+#define ADAFRUIT_LIBS // comment this if using bootleg libs 
 
 #include "MachineDefs.h"
 #include <SPI.h>       // this is needed for display
-#ifndef ADAFRUIT_LIBS // comment this if usoing bootleg libs
+#ifndef ADAFRUIT_LIBS 
 #include <GFX.h>    // Core graphics library
 #include <ILI9341.h>
 #include <FT6206.h>
